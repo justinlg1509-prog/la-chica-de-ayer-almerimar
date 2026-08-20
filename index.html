@@ -66,7 +66,8 @@
       "url": "https://lachicadeayeralmerimar.es/",
       "telephone": "+34000000000",
       "priceRange": "€€",
-      "servesCuisine": ["Cócteles", "Copas", "Vinos"],
+      "servesCuisine": ["Cócteles", "Copas", "Vinos", "Tapas"],
+      "hasMenu": { "@id": "https://lachicadeayeralmerimar.es/#carta" },
       "currenciesAccepted": "EUR",
       "paymentAccepted": "Efectivo, Tarjeta de crédito",
       "address": {
@@ -104,6 +105,94 @@
       "sameAs": [
         "https://www.instagram.com/",
         "https://www.facebook.com/"
+      ]
+    },
+    {
+      "@type": "Menu",
+      "@id": "https://lachicadeayeralmerimar.es/#carta",
+      "name": "Carta de La Chica de Ayer",
+      "inLanguage": "es-ES",
+      "url": "https://lachicadeayeralmerimar.es/#carta",
+      "hasMenuSection": [
+        {
+          "@type": "MenuSection",
+          "name": "Cócteles de autor",
+          "description": "Seis copas que solo existen aquí. Cambian con la temporada.",
+          "hasMenuItem": [
+            { "@type": "MenuItem", "name": "La Chica de Ayer", "description": "Gin infusionado en azahar, vermut blanco, licor de melocotón y limón del terreno.", "offers": { "@type": "Offer", "price": "11.00", "priceCurrency": "EUR" } },
+            { "@type": "MenuItem", "name": "Cara B", "description": "Ron añejo, amaro, sirope de dátil y naranja quemada.", "offers": { "@type": "Offer", "price": "10.50", "priceCurrency": "EUR" } },
+            { "@type": "MenuItem", "name": "Poniente", "description": "Tequila blanco, sandía prensada, lima y sal en escamas.", "offers": { "@type": "Offer", "price": "10.00", "priceCurrency": "EUR" } },
+            { "@type": "MenuItem", "name": "Draga 37", "description": "Mezcal, pomelo rosa, miel de romero y soda de casa.", "offers": { "@type": "Offer", "price": "11.00", "priceCurrency": "EUR" } },
+            { "@type": "MenuItem", "name": "Marea Baja", "description": "Vodka, hinojo, manzana verde y tónica seca.", "offers": { "@type": "Offer", "price": "10.50", "priceCurrency": "EUR" } },
+            { "@type": "MenuItem", "name": "Última Canción", "description": "Whisky de centeno, vermut rojo, cacao y bíter de naranja.", "offers": { "@type": "Offer", "price": "12.00", "priceCurrency": "EUR" } }
+          ]
+        },
+        {
+          "@type": "MenuSection",
+          "name": "Clásicos",
+          "hasMenuItem": [
+            { "@type": "MenuItem", "name": "Negroni", "offers": { "@type": "Offer", "price": "9.00", "priceCurrency": "EUR" } },
+            { "@type": "MenuItem", "name": "Old Fashioned", "offers": { "@type": "Offer", "price": "10.00", "priceCurrency": "EUR" } },
+            { "@type": "MenuItem", "name": "Margarita", "offers": { "@type": "Offer", "price": "9.50", "priceCurrency": "EUR" } },
+            { "@type": "MenuItem", "name": "Daiquiri", "offers": { "@type": "Offer", "price": "9.00", "priceCurrency": "EUR" } },
+            { "@type": "MenuItem", "name": "Mojito", "offers": { "@type": "Offer", "price": "9.00", "priceCurrency": "EUR" } },
+            { "@type": "MenuItem", "name": "Gin Tonic", "offers": { "@type": "Offer", "price": "8.50", "priceCurrency": "EUR" } },
+            { "@type": "MenuItem", "name": "Espresso Martini", "offers": { "@type": "Offer", "price": "10.00", "priceCurrency": "EUR" } },
+            { "@type": "MenuItem", "name": "Aperol Spritz", "offers": { "@type": "Offer", "price": "8.50", "priceCurrency": "EUR" } }
+          ]
+        },
+        {
+          "@type": "MenuSection",
+          "name": "Sin alcohol",
+          "hasMenuItem": [
+            { "@type": "MenuItem", "name": "Verano del 82", "suitableForDiet": "https://schema.org/LowAlcoholDiet", "offers": { "@type": "Offer", "price": "7.00", "priceCurrency": "EUR" } },
+            { "@type": "MenuItem", "name": "Jardín de Poniente", "offers": { "@type": "Offer", "price": "7.00", "priceCurrency": "EUR" } },
+            { "@type": "MenuItem", "name": "Nada que Perder", "offers": { "@type": "Offer", "price": "6.50", "priceCurrency": "EUR" } },
+            { "@type": "MenuItem", "name": "Tinto de verano de la casa", "offers": { "@type": "Offer", "price": "5.00", "priceCurrency": "EUR" } },
+            { "@type": "MenuItem", "name": "Zumos naturales", "offers": { "@type": "Offer", "price": "4.00", "priceCurrency": "EUR" } },
+            { "@type": "MenuItem", "name": "Café de especialidad", "offers": { "@type": "Offer", "price": "2.20", "priceCurrency": "EUR" } }
+          ]
+        },
+        {
+          "@type": "MenuSection",
+          "name": "Vinos y cervezas",
+          "hasMenuItem": [
+            { "@type": "MenuItem", "name": "Blanco de la tierra (copa)", "offers": { "@type": "Offer", "price": "3.80", "priceCurrency": "EUR" } },
+            { "@type": "MenuItem", "name": "Tinto joven (copa)", "offers": { "@type": "Offer", "price": "3.80", "priceCurrency": "EUR" } },
+            { "@type": "MenuItem", "name": "Rosado de aguja (copa)", "offers": { "@type": "Offer", "price": "4.00", "priceCurrency": "EUR" } },
+            { "@type": "MenuItem", "name": "Cava brut nature (copa)", "offers": { "@type": "Offer", "price": "4.50", "priceCurrency": "EUR" } },
+            { "@type": "MenuItem", "name": "Vermut de grifo", "offers": { "@type": "Offer", "price": "3.50", "priceCurrency": "EUR" } },
+            { "@type": "MenuItem", "name": "Caña", "offers": { "@type": "Offer", "price": "2.50", "priceCurrency": "EUR" } },
+            { "@type": "MenuItem", "name": "Cerveza artesana local", "offers": { "@type": "Offer", "price": "4.50", "priceCurrency": "EUR" } },
+            { "@type": "MenuItem", "name": "Cerveza sin alcohol", "offers": { "@type": "Offer", "price": "2.80", "priceCurrency": "EUR" } }
+          ]
+        },
+        {
+          "@type": "MenuSection",
+          "name": "Destilados y copas",
+          "hasMenuItem": [
+            { "@type": "MenuItem", "name": "Ginebras premium", "offers": { "@type": "Offer", "price": "8.50", "priceCurrency": "EUR" } },
+            { "@type": "MenuItem", "name": "Ron añejo", "offers": { "@type": "Offer", "price": "8.50", "priceCurrency": "EUR" } },
+            { "@type": "MenuItem", "name": "Whisky single malt", "offers": { "@type": "Offer", "price": "9.50", "priceCurrency": "EUR" } },
+            { "@type": "MenuItem", "name": "Tequila y mezcal", "offers": { "@type": "Offer", "price": "9.00", "priceCurrency": "EUR" } },
+            { "@type": "MenuItem", "name": "Licores y digestivos", "offers": { "@type": "Offer", "price": "6.50", "priceCurrency": "EUR" } },
+            { "@type": "MenuItem", "name": "Copa de la casa", "offers": { "@type": "Offer", "price": "7.00", "priceCurrency": "EUR" } }
+          ]
+        },
+        {
+          "@type": "MenuSection",
+          "name": "Para picar",
+          "hasMenuItem": [
+            { "@type": "MenuItem", "name": "Aceitunas aliñadas de la casa", "offers": { "@type": "Offer", "price": "3.50", "priceCurrency": "EUR" } },
+            { "@type": "MenuItem", "name": "Almendras marconas fritas", "offers": { "@type": "Offer", "price": "4.00", "priceCurrency": "EUR" } },
+            { "@type": "MenuItem", "name": "Tabla de quesos del sur", "offers": { "@type": "Offer", "price": "12.00", "priceCurrency": "EUR" } },
+            { "@type": "MenuItem", "name": "Jamón ibérico de bellota", "offers": { "@type": "Offer", "price": "14.00", "priceCurrency": "EUR" } },
+            { "@type": "MenuItem", "name": "Tosta de tomate raf y anchoa", "offers": { "@type": "Offer", "price": "8.50", "priceCurrency": "EUR" } },
+            { "@type": "MenuItem", "name": "Boquerones en vinagre", "offers": { "@type": "Offer", "price": "6.50", "priceCurrency": "EUR" } },
+            { "@type": "MenuItem", "name": "Ensaladilla de la casa", "offers": { "@type": "Offer", "price": "6.00", "priceCurrency": "EUR" } },
+            { "@type": "MenuItem", "name": "Patatas bravas", "offers": { "@type": "Offer", "price": "6.00", "priceCurrency": "EUR" } }
+          ]
+        }
       ]
     },
     {
@@ -324,31 +413,262 @@
     <div class="carta-head">
       <p class="eyebrow" data-fade>Capítulo VI — La carta</p>
       <h2 id="carta-h" data-lines>Lo que se <i>sirve</i> aquí.</h2>
-      <p class="lede" data-fade>Producto honesto, hielo bueno y tiempo. Una carta corta que cambia con la temporada y siempre tiene una copa esperándote.</p>
+      <p class="lede" data-fade>Producto honesto, hielo bueno y tiempo. Coctelería de autor, clásicos sin atajos, vinos del sur y cocina corta para acompañar. Cambia con la temporada; siempre hay una copa esperándote.</p>
     </div>
-    <div class="carta-grid">
-      <article class="card" data-reveal>
-        <span class="card-k">01 — Signatures</span>
-        <h3 class="serif">Cócteles de autor</h3>
-        <p>Creaciones de casa con destilados seleccionados, cítricos del día y una vuelta mediterránea. La carta rota cada temporada.</p>
-      </article>
-      <article class="card" data-reveal>
-        <span class="card-k">02 — Clásicos</span>
-        <h3 class="serif">De siempre, bien hechos</h3>
-        <p>Negroni, Old Fashioned, Margarita, Gin Tonic. Sin atajos: la técnica es lo que separa una copa de un recuerdo.</p>
-      </article>
-      <article class="card" data-reveal>
-        <span class="card-k">03 — Sin alcohol</span>
-        <h3 class="serif">Mocktails con carácter</h3>
-        <p>Misma técnica, cero alcohol. Infusiones, sodas de casa y frutas de la vega para que nadie se quede fuera del brindis.</p>
-      </article>
-      <article class="card" data-reveal>
-        <span class="card-k">04 — Vinos &amp; cervezas</span>
-        <h3 class="serif">Selección corta</h3>
-        <p>Vinos del sur, alguna sorpresa de fuera y cervezas frías bien tiradas. Para acompañar el atardecer sin complicarse.</p>
-      </article>
+    <ul class="carta-pills" data-fade>
+      <li>Producto de la tierra</li>
+      <li>Cítricos exprimidos al momento</li>
+      <li>Hielo de calidad</li>
+      <li>Rotación por temporada</li>
+    </ul>
+
+    <div class="menu" id="menu">
+      <div class="menu-tabs" role="tablist" aria-label="Categorías de la carta">
+        <button type="button" role="tab" id="tab-autor"      aria-controls="panel-autor"      aria-selected="true"  data-cursor>Cócteles de autor</button>
+        <button type="button" role="tab" id="tab-clasicos"   aria-controls="panel-clasicos"   aria-selected="false" tabindex="-1" data-cursor>Clásicos</button>
+        <button type="button" role="tab" id="tab-sinalcohol" aria-controls="panel-sinalcohol" aria-selected="false" tabindex="-1" data-cursor>Sin alcohol</button>
+        <button type="button" role="tab" id="tab-vinos"      aria-controls="panel-vinos"      aria-selected="false" tabindex="-1" data-cursor>Vinos &amp; cervezas</button>
+        <button type="button" role="tab" id="tab-destilados" aria-controls="panel-destilados" aria-selected="false" tabindex="-1" data-cursor>Destilados</button>
+        <button type="button" role="tab" id="tab-picar"      aria-controls="panel-picar"      aria-selected="false" tabindex="-1" data-cursor>Para picar</button>
+      </div>
+
+      <div class="menu-panels">
+
+        <!-- CÓCTELES DE AUTOR -->
+        <section class="menu-panel" id="panel-autor" role="tabpanel" aria-labelledby="tab-autor" tabindex="0">
+          <div class="menu-panel-head">
+            <h3 class="serif">Cócteles de autor</h3>
+            <p>Seis copas que solo existen aquí. Cambian con la temporada, pero el nombre se queda.</p>
+          </div>
+          <ul class="menu-list">
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">La Chica de Ayer</span><span class="mi-tag">La de la casa</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">11,00&nbsp;€</span></p>
+              <p class="mi-desc">Gin infusionado en azahar, vermut blanco, licor de melocotón y limón del terreno. Floral, seca y de final largo.</p>
+            </li>
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Cara B</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">10,50&nbsp;€</span></p>
+              <p class="mi-desc">Ron añejo, amaro, sirope de dátil y naranja quemada. Oscura, tostada y para escuchar despacio.</p>
+            </li>
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Poniente</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">10,00&nbsp;€</span></p>
+              <p class="mi-desc">Tequila blanco, sandía prensada, lima y sal en escamas. Fresca como la brisa que baja al puerto.</p>
+            </li>
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Draga 37</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">11,00&nbsp;€</span></p>
+              <p class="mi-desc">Mezcal, pomelo rosa, miel de romero y soda de casa. Ahumada, cítrica y con la dirección puesta.</p>
+            </li>
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Marea Baja</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">10,50&nbsp;€</span></p>
+              <p class="mi-desc">Vodka, hinojo, manzana verde y tónica seca. Herbácea y limpia; la copa de los que empiezan pronto.</p>
+            </li>
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Última Canción</span><span class="mi-tag">De cierre</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">12,00&nbsp;€</span></p>
+              <p class="mi-desc">Whisky de centeno, vermut rojo, cacao y bíter de naranja. Densa y dulce. Solo a partir de la una.</p>
+            </li>
+          </ul>
+        </section>
+
+        <!-- CLÁSICOS -->
+        <section class="menu-panel" id="panel-clasicos" role="tabpanel" aria-labelledby="tab-clasicos" tabindex="0">
+          <div class="menu-panel-head">
+            <h3 class="serif">Clásicos, bien hechos</h3>
+            <p>Sin atajos ni preparados. La técnica es lo que separa una copa de un recuerdo.</p>
+          </div>
+          <ul class="menu-list">
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Negroni</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">9,00&nbsp;€</span></p>
+              <p class="mi-desc">Gin, vermut rojo y bíter. Tres partes iguales y nada más que añadir.</p>
+            </li>
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Old Fashioned</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">10,00&nbsp;€</span></p>
+              <p class="mi-desc">Bourbon, azúcar, angostura y piel de naranja. El patrón oro de la barra.</p>
+            </li>
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Margarita</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">9,50&nbsp;€</span></p>
+              <p class="mi-desc">Tequila, triple seco y lima recién exprimida. Con sal o sin ella, tú mandas.</p>
+            </li>
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Daiquiri</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">9,00&nbsp;€</span></p>
+              <p class="mi-desc">Ron blanco, lima y azúcar. Tres ingredientes y cero margen de error.</p>
+            </li>
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Mojito</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">9,00&nbsp;€</span></p>
+              <p class="mi-desc">Ron, hierbabuena, lima y soda. Bien majado y con el hielo justo.</p>
+            </li>
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Gin Tonic</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">8,50&nbsp;€</span></p>
+              <p class="mi-desc">Elige ginebra y te montamos el botánico que le pega. Copa fría, siempre.</p>
+            </li>
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Espresso Martini</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">10,00&nbsp;€</span></p>
+              <p class="mi-desc">Vodka, café recién extraído y licor de café. Para alargar la noche sin negociar.</p>
+            </li>
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Aperol Spritz</span><span class="mi-tag">Tardeo</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">8,50&nbsp;€</span></p>
+              <p class="mi-desc">Aperol, cava y soda. El atardecer de Almerimar servido en copa de balón.</p>
+            </li>
+          </ul>
+        </section>
+
+        <!-- SIN ALCOHOL -->
+        <section class="menu-panel" id="panel-sinalcohol" role="tabpanel" aria-labelledby="tab-sinalcohol" tabindex="0">
+          <div class="menu-panel-head">
+            <h3 class="serif">Sin alcohol, con carácter</h3>
+            <p>Misma técnica, cero grados. Para que nadie se quede fuera del brindis.</p>
+          </div>
+          <ul class="menu-list">
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Verano del 82</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">7,00&nbsp;€</span></p>
+              <p class="mi-desc">Sandía, lima, albahaca y soda de casa. Larga, fría y sin resaca.</p>
+            </li>
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Jardín de Poniente</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">7,00&nbsp;€</span></p>
+              <p class="mi-desc">Pepino, hinojo, manzana verde y tónica sin alcohol. Verde y muy limpia.</p>
+            </li>
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Nada que Perder</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">6,50&nbsp;€</span></p>
+              <p class="mi-desc">Naranja sanguina, romero, jengibre y soda. Con chispa y algo de picante.</p>
+            </li>
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Tinto de verano de la casa</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">5,00&nbsp;€</span></p>
+              <p class="mi-desc">Vino sin alcohol, limón y una rodaja de naranja. El de toda la vida.</p>
+            </li>
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Zumos naturales</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">4,00&nbsp;€</span></p>
+              <p class="mi-desc">Naranja, sandía o piña, exprimidos delante de ti.</p>
+            </li>
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Café de especialidad</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">2,20&nbsp;€</span></p>
+              <p class="mi-desc">Solo, cortado o con hielo. Tueste de tostador andaluz.</p>
+            </li>
+          </ul>
+        </section>
+
+        <!-- VINOS & CERVEZAS -->
+        <section class="menu-panel" id="panel-vinos" role="tabpanel" aria-labelledby="tab-vinos" tabindex="0">
+          <div class="menu-panel-head">
+            <h3 class="serif">Vinos &amp; cervezas</h3>
+            <p>Selección corta, del sur casi entera. Servida a la temperatura que toca.</p>
+          </div>
+          <ul class="menu-list">
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Blanco de la tierra</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">3,80&nbsp;€</span></p>
+              <p class="mi-desc">Macabeo de Almería. Seco, con salinidad y mucho puerto. Copa.</p>
+            </li>
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Tinto joven</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">3,80&nbsp;€</span></p>
+              <p class="mi-desc">Garnacha del sur, fresca y servida a 15º. Copa.</p>
+            </li>
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Rosado de aguja</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">4,00&nbsp;€</span></p>
+              <p class="mi-desc">Ligero, con burbuja fina. El comodín del atardecer. Copa.</p>
+            </li>
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Cava brut nature</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">4,50&nbsp;€</span></p>
+              <p class="mi-desc">Sin azúcar añadido. Para celebrar sin motivo. Copa.</p>
+            </li>
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Vermut de grifo</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">3,50&nbsp;€</span></p>
+              <p class="mi-desc">Con hielo, naranja y aceituna. Como manda el manual.</p>
+            </li>
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Caña</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">2,50&nbsp;€</span></p>
+              <p class="mi-desc">Bien tirada y bien fría. Doble, 3,50 €.</p>
+            </li>
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Artesana local</span><span class="mi-tag">De aquí</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">4,50&nbsp;€</span></p>
+              <p class="mi-desc">Rotamos entre cerveceras almerienses. Pregunta cuál hay hoy. Botella.</p>
+            </li>
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Cerveza sin alcohol</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">2,80&nbsp;€</span></p>
+              <p class="mi-desc">También la tenemos con limón. Botella.</p>
+            </li>
+          </ul>
+        </section>
+
+        <!-- DESTILADOS -->
+        <section class="menu-panel" id="panel-destilados" role="tabpanel" aria-labelledby="tab-destilados" tabindex="0">
+          <div class="menu-panel-head">
+            <h3 class="serif">Destilados &amp; copas</h3>
+            <p>Estantería larga y sin prisa. Si no lo ves, pregunta: suele estar detrás.</p>
+          </div>
+          <ul class="menu-list">
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Ginebras premium</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">8,50&nbsp;€</span></p>
+              <p class="mi-desc">London dry, cítricas o florales. Más de veinte referencias.</p>
+            </li>
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Ron añejo</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">8,50&nbsp;€</span></p>
+              <p class="mi-desc">Caribe y Centroamérica. Solo, con hielo o como te apetezca.</p>
+            </li>
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Whisky single malt</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">9,50&nbsp;€</span></p>
+              <p class="mi-desc">Escocia e Irlanda, con alguna turba para los valientes.</p>
+            </li>
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Tequila &amp; mezcal</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">9,00&nbsp;€</span></p>
+              <p class="mi-desc">Blanco, reposado o ahumado. Con naranja y sal de gusano si te atreves.</p>
+            </li>
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Licores &amp; digestivos</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">6,50&nbsp;€</span></p>
+              <p class="mi-desc">Amaros, hierbas, orujos y algún pacharán de la casa.</p>
+            </li>
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Copa de la casa</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">7,00&nbsp;€</span></p>
+              <p class="mi-desc">Nuestra selección de siempre con el refresco que elijas.</p>
+            </li>
+          </ul>
+        </section>
+
+        <!-- PARA PICAR -->
+        <section class="menu-panel" id="panel-picar" role="tabpanel" aria-labelledby="tab-picar" tabindex="0">
+          <div class="menu-panel-head">
+            <h3 class="serif">Para picar</h3>
+            <p>Cocina corta para acompañar la copa. Producto de la vega y del puerto.</p>
+          </div>
+          <ul class="menu-list">
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Aceitunas aliñadas de la casa</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">3,50&nbsp;€</span></p>
+              <p class="mi-desc">Con hinojo, ajo y comino. El aperitivo que abre todas las noches.</p>
+            </li>
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Almendras marconas fritas</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">4,00&nbsp;€</span></p>
+              <p class="mi-desc">Fritas en aceite de oliva y sal gorda. Peligrosamente adictivas.</p>
+            </li>
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Tabla de quesos del sur</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">12,00&nbsp;€</span></p>
+              <p class="mi-desc">Tres quesos andaluces, membrillo y picos. Para dos, de sobra.</p>
+            </li>
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Jamón ibérico de bellota</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">14,00&nbsp;€</span></p>
+              <p class="mi-desc">Cortado a cuchillo al momento, con picos de Alcalá.</p>
+            </li>
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Tosta de tomate raf y anchoa</span><span class="mi-tag">De temporada</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">8,50&nbsp;€</span></p>
+              <p class="mi-desc">Raf de la comarca, anchoa del Cantábrico y aceite de oliva virgen extra.</p>
+            </li>
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Boquerones en vinagre</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">6,50&nbsp;€</span></p>
+              <p class="mi-desc">Del puerto, macerados en casa. Con ajo y perejil.</p>
+            </li>
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Ensaladilla de la casa</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">6,00&nbsp;€</span></p>
+              <p class="mi-desc">Con ventresca y alioli suave. La receta no se comparte.</p>
+            </li>
+            <li class="menu-item">
+              <p class="mi-head"><span class="mi-name serif">Patatas bravas</span><span class="mi-dots" aria-hidden="true"></span><span class="mi-price">6,00&nbsp;€</span></p>
+              <p class="mi-desc">Salsa brava de verdad y alioli. Pican lo justo.</p>
+            </li>
+          </ul>
+        </section>
+
+      </div>
     </div>
-    <p class="carta-note" data-fade>¿Alergias o intolerancias? Dínoslo al pedir y adaptamos la copa.</p>
+
+    <div class="carta-foot" data-fade>
+      <p class="carta-note">Precios con IVA incluido. La carta rota con la temporada, así que alguna copa puede cambiar de nombre antes de que vuelvas.</p>
+      <p class="carta-note"><strong>¿Alergias o intolerancias?</strong> Dínoslo al pedir y adaptamos la copa o el plato. Tenemos la información de alérgenos disponible en barra.</p>
+    </div>
   </div>
 </section>
 

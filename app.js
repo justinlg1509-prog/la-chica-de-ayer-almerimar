@@ -159,6 +159,45 @@
   };
   spy();
 
+  /* ===== carta: pestañas por categoría =====
+     Mejora progresiva pura. Si este bloque no llega a ejecutarse, el HTML
+     muestra las seis categorías seguidas y la carta se lee entera igual. */
+  const menu = $('#menu');
+  const tablist = menu && $('.menu-tabs', menu);
+  if (menu && tablist) {
+    const tabs = $$('[role="tab"]', tablist);
+    const panels = tabs.map(t => document.getElementById(t.getAttribute('aria-controls')));
+
+    if (tabs.length && panels.every(Boolean)) {
+      menu.classList.add('js-tabs');
+
+      const select = (i, moveFocus) => {
+        tabs.forEach((tab, n) => {
+          const on = n === i;
+          tab.setAttribute('aria-selected', String(on));
+          tab.tabIndex = on ? 0 : -1;
+          panels[n].hidden = !on;
+        });
+        if (moveFocus) tabs[i].focus();
+        // cambia la altura del documento: recalcula los disparadores
+        if (hasGSAP) ScrollTrigger.refresh();
+      };
+
+      select(0, false);
+      tabs.forEach((tab, i) => tab.addEventListener('click', () => select(i, false)));
+
+      // navegación con flechas, Inicio y Fin (patrón ARIA de tabs)
+      tablist.addEventListener('keydown', e => {
+        const i = tabs.indexOf(document.activeElement);
+        if (i < 0) return;
+        const target = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: tabs.length - 1 }[e.key];
+        if (target === undefined) return;
+        e.preventDefault();
+        select((target + tabs.length) % tabs.length, true);
+      });
+    }
+  }
+
   /* ===== animaciones de scroll ===== */
   if (animate) {
     ScrollTrigger.create({

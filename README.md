@@ -98,6 +98,8 @@ Antes de publicar en el dominio definitivo hay que sustituir los marcadores:
 - [ ] **Redes sociales** — enlaces a Instagram y Facebook (footer y `sameAs` del JSON-LD).
 - [ ] **Fotografías** — las imágenes son de Unsplash a modo de referencia visual; conviene reemplazarlas por fotos del local en formato WebP servidas desde `/images`.
 - [ ] **Coordenadas y dirección** — verificar el punto exacto del mapa.
-- [ ] **Carta y agenda** — los textos de la carta y de las noches son de muestra.
+- [ ] **Carta y precios** — ⚠️ **los 42 productos y todos los precios son inventados**, escritos como muestra editorial con precios plausibles de la zona. Hay que sustituirlos por la carta real **en dos sitios**: el HTML de la sección `#carta` y el bloque `Menu` del JSON-LD (si los precios del schema no coinciden con los reales, Google lo penaliza).
+- [ ] **Alérgenos** — la web dice que la información está disponible en barra; es obligatorio tenerla (Reglamento UE 1169/2011).
+- [ ] **Agenda** — los nombres de las noches de la semana son de muestra.
 - [ ] **Dominio** — si cambia, actualizar `canonical`, Open Graph, `sitemap.xml` y `robots.txt`.
 - [ ] **Aviso legal, privacidad y cookies** — obligatorios en España (LSSI/RGPD) una vez se añada cualquier analítica.

@@ -302,17 +302,78 @@ section{position:relative}
 .carta-head h2{font-family:var(--display);font-weight:300;font-size:clamp(2.2rem,5.4vw,4.2rem);line-height:1;letter-spacing:-.01em;margin:1.4rem 0 1.4rem}
 .carta-head h2 i{font-style:italic;color:var(--amber)}
 .carta-head .lede{color:var(--bone-dim);max-width:52ch;font-size:clamp(1rem,1.5vw,1.12rem);margin:0}
-.carta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:1.2rem}
-.card{
-  border:1px solid var(--line);border-radius:6px;padding:2rem 1.8rem 2.2rem;
-  background:linear-gradient(180deg,rgba(232,178,113,.035),transparent);
-  transition:border-color .5s var(--ease),transform .5s var(--ease),background .5s;
+/* sellos de producto */
+.carta-pills{list-style:none;display:flex;flex-wrap:wrap;gap:.55rem;margin:-1.4rem 0 2.6rem}
+.carta-pills li{
+  font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--bone-faint);
+  border:1px solid var(--line);border-radius:40px;padding:.5rem 1.1rem;
 }
-.card:hover{border-color:var(--line-strong);transform:translateY(-6px);background:linear-gradient(180deg,rgba(232,178,113,.07),transparent)}
-.card-k{display:block;font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;color:var(--amber-soft)}
-.card h3{font-family:var(--display);font-weight:300;font-size:1.55rem;line-height:1.15;margin:.9rem 0 .8rem}
-.card p{color:var(--bone-dim);font-size:.93rem}
-.carta-note{margin-top:2.4rem;color:var(--bone-faint);font-size:.85rem;letter-spacing:.04em}
+
+/* --- pestañas de categoría (mejora progresiva) ---
+   Sin JS no hay pestañas: se muestran todos los paneles seguidos, con lo
+   que la carta completa sigue siendo legible e indexable. */
+.menu-tabs{display:none}
+.menu.js-tabs .menu-tabs{
+  display:flex;gap:.5rem;flex-wrap:nowrap;overflow-x:auto;
+  padding-bottom:.9rem;margin-bottom:2.6rem;
+  border-bottom:1px solid var(--line);
+  scrollbar-width:none;
+}
+.menu.js-tabs .menu-tabs::-webkit-scrollbar{display:none}
+.menu-tabs button{
+  cursor:pointer;white-space:nowrap;flex:0 0 auto;
+  font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--bone-faint);
+  border:1px solid transparent;border-radius:40px;padding:.6rem 1.2rem;
+  transition:color .4s,border-color .4s,background .4s;
+}
+.menu-tabs button:hover{color:var(--bone)}
+.menu-tabs button[aria-selected="true"]{color:var(--amber);border-color:var(--line-strong);background:rgba(232,178,113,.06)}
+
+.menu-panels{display:block}
+.menu.js-tabs .menu-panel[hidden]{display:none}
+.menu-panel + .menu-panel{margin-top:3.4rem}
+.menu.js-tabs .menu-panel + .menu-panel{margin-top:0}
+.menu-panel-head{margin-bottom:1.8rem}
+.menu-panel-head h3{font-family:var(--display);font-weight:300;font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.15}
+.menu-panel-head p{color:var(--bone-dim);font-size:.95rem;margin-top:.5rem;max-width:56ch}
+
+/* --- listado de productos --- */
+.menu-list{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:.4rem 3.5rem}
+.menu-item{padding:1.1rem 0;border-bottom:1px solid var(--line);transition:border-color .4s}
+.menu-item:hover{border-color:var(--line-strong)}
+.mi-head{display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap}
+.mi-name{font-family:var(--display);font-size:1.18rem;font-weight:400;line-height:1.25;color:var(--bone);transition:color .4s}
+.menu-item:hover .mi-name{color:var(--amber)}
+.mi-dots{flex:1 1 2rem;min-width:1.5rem;border-bottom:1px dotted rgba(239,230,216,.28);transform:translateY(-.25rem)}
+.mi-price{font-size:.95rem;color:var(--amber);white-space:nowrap;font-variant-numeric:tabular-nums}
+.mi-tag{
+  font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);
+  background:var(--amber-soft);border-radius:30px;padding:.22rem .6rem;line-height:1.5;
+}
+.mi-desc{color:var(--bone-dim);font-size:.88rem;line-height:1.55;margin-top:.35rem;max-width:52ch}
+
+@media(max-width:900px){
+  .menu-list{grid-template-columns:1fr;gap:0}
+}
+
+/* Entrada escalonada. Se apoya en CSS, no en ScrollTrigger: al pasar de
+   display:none a visible el navegador reinicia la animación, así que
+   funciona igual al cargar que al cambiar de pestaña. */
+.menu-panel-head,.menu-item{animation:mi-in .55s var(--ease) both}
+.menu-item:nth-child(1){animation-delay:.04s}
+.menu-item:nth-child(2){animation-delay:.08s}
+.menu-item:nth-child(3){animation-delay:.12s}
+.menu-item:nth-child(4){animation-delay:.16s}
+.menu-item:nth-child(5){animation-delay:.20s}
+.menu-item:nth-child(6){animation-delay:.24s}
+.menu-item:nth-child(7){animation-delay:.28s}
+.menu-item:nth-child(8){animation-delay:.32s}
+@keyframes mi-in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* --- pie de la carta --- */
+.carta-foot{margin-top:2.8rem;display:grid;gap:.7rem}
+.carta-note{color:var(--bone-faint);font-size:.85rem;letter-spacing:.03em;max-width:70ch}
+.carta-note strong{color:var(--bone-dim);font-weight:400}
 
 /* ============================================================
    CTA FINAL
@@ -447,7 +508,14 @@ body.menu-open .to-top{opacity:0;visibility:hidden}
   .hero,.finale{min-height:auto;height:auto;padding:2rem 0}
   h1,h2,h3{color:#000}
   a{color:#000;text-decoration:underline}
-  .exp,.carta-grid,.contact,.life{display:block}
+  .exp,.menu-list,.contact,.life{display:block}
+  /* al imprimir se saca la carta entera, no solo la pestaña abierta */
+  .menu-tabs,.carta-pills{display:none!important}
+  .menu.js-tabs .menu-panel[hidden]{display:block!important}
+  .menu-panel-head,.menu-item{animation:none!important;opacity:1!important}
+  .menu-item{break-inside:avoid;border-color:#ddd}
+  .mi-price{color:#000}
+  .mi-dots{border-bottom-color:#bbb}
   .faq-list details{border-color:#ccc}
   .faq-list details p{display:block}
 }
