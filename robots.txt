@@ -1,4 +1,5 @@
+# Maqueta de diseño: no debe indexarse como si fuera un negocio real.
+# Para producción: cambiar a "Allow: /", restaurar la etiqueta robots de
+# index.html y volver a declarar el sitemap.
 User-agent: *
-Allow: /
-
-Sitemap: https://lachicadeayeralmerimar.es/sitemap.xml
+Disallow: /

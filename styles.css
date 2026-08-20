@@ -535,11 +535,10 @@ footer{background:var(--ink);border-top:1px solid var(--line);padding:clamp(4rem
 .foot-logo{height:90px;width:auto;border-radius:8px;margin-bottom:1rem}
 .foot-grid p{color:var(--bone-dim);max-width:34ch;font-size:.95rem}
 .foot-col h2{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--amber-soft);margin-bottom:1.2rem;font-weight:500}
-.foot-h-spaced{margin-top:1.6rem}
 .foot-hours{color:var(--bone-dim);font-size:.95rem}
 .foot-col a,.foot-col address{display:block;color:var(--bone-dim);font-style:normal;font-size:.95rem;margin-bottom:.6rem;transition:color .4s}
 .foot-col a:hover{color:var(--amber)}
-.foot-bottom{max-width:1300px;margin:3.5rem auto 0;padding-top:1.6rem;border-top:1px solid var(--line);
+.foot-bottom{max-width:1300px;margin:3.5rem auto 0;padding:1.6rem 4rem 0 0;border-top:1px solid var(--line);
   display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;color:var(--bone-faint);font-size:.78rem;letter-spacing:.05em}
 @media(max-width:780px){.foot-grid{grid-template-columns:1fr;gap:2.2rem}}
 
@@ -564,7 +563,8 @@ body.menu-open .to-top{opacity:0;visibility:hidden}
   .hero-sub p{max-width:none}
   .hero-sub .btn{width:100%;max-width:340px}
   .nights-head{flex-direction:column;align-items:flex-start}
-  .foot-bottom{flex-direction:column;align-items:center;text-align:center}
+  /* en columna vuelve a centrarse: el hueco del botón descentraría el texto */
+  .foot-bottom{flex-direction:column;align-items:center;text-align:center;padding-right:0}
   .cta-row{flex-direction:column;align-items:center}
   .cta-row .btn{width:100%;max-width:320px}
   .life-stats{gap:1.6rem}

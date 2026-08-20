@@ -1,8 +1,26 @@
 # La Chica de Ayer — Almerimar
 
-Propuesta de web para **La Chica de Ayer**, pub y bar de copas frente al puerto de Almerimar (El Ejido, Almería).
+**Maqueta de diseño** de una web para un pub y bar de copas frente al puerto de Almerimar (El Ejido, Almería).
 
 Sitio estático de una sola página: sin build, sin dependencias que instalar. Se abre `index.html` y funciona.
+
+> ### ⚠️ No es una web operativa
+>
+> Es una pieza de diseño. **No hay canales de contacto reales** y el contenido es de muestra:
+>
+> | | |
+> |---|---|
+> | Teléfono y WhatsApp | **eliminados** — no hay `tel:` ni `wa.me` en ninguna parte |
+> | Redes sociales | **eliminadas** — footer y `sameAs` del JSON-LD |
+> | Logo e iconos | marca genérica de relleno (`images/mark.webp`), no la del local |
+> | Carta y precios | 42 productos **inventados** |
+> | Agenda semanal | nombres de muestra |
+> | Fotografía | Unsplash, de relleno |
+> | Dirección y horario | **se mantienen**, son los únicos datos reales |
+>
+> La página lleva `noindex, nofollow` y `robots.txt` con `Disallow: /`, para que no se indexe como si fuera el negocio real: tiene una dirección auténtica junto a precios inventados, y eso podría confundir a quien busque el local.
+>
+> **Para pasarla a producción:** poner los datos reales, cambiar la etiqueta `robots` de `index.html` a `index, follow, max-image-preview:large, max-snippet:-1`, `robots.txt` a `Allow: /` con la línea `Sitemap:`, y actualizar el dominio en `canonical`, Open Graph, JSON-LD y `sitemap.xml`.
 
 ---
 
@@ -27,8 +45,7 @@ Las librerías se cargan con `defer` desde CDN y son **opcionales**: si el CDN f
 ├── 404.html           # Página de error con la misma identidad
 ├── styles.css         # Sistema de diseño completo
 ├── app.js             # Interacción y animaciones
-├── images/
-│   └── logo.webp
+├── images/            # WebP propios: 9 fotos (2-3 anchos) + marca e iconos
 ├── robots.txt
 ├── sitemap.xml
 ├── site.webmanifest   # Instalable como PWA básica
@@ -116,22 +133,24 @@ Si hay que regenerar las imágenes o cambiar el grade, el pipeline usa [sharp](h
 
 ## SEO
 
+Todo el trabajo está hecho y listo, pero **desactivado a propósito** mientras esto sea una maqueta (ver el aviso del principio):
+
 - Metadatos completos, Open Graph y Twitter Card.
-- Datos estructurados JSON-LD: `BarOrPub` + `WebSite` + `FAQPage`.
+- Datos estructurados JSON-LD: `BarOrPub` + `Menu` + `WebSite` + `FAQPage`.
 - Etiquetas geográficas, `canonical`, `robots.txt` y `sitemap.xml`.
 
 ---
 
-## Pendiente de datos reales
+## Si algún día se pone en producción
 
-Antes de publicar en el dominio definitivo hay que sustituir los marcadores:
-
-- [ ] **Teléfono y WhatsApp** — ahora `+34 000 000 000` en `index.html` (enlaces `wa.me`, `tel:` y el JSON-LD).
-- [ ] **Redes sociales** — enlaces a Instagram y Facebook (footer y `sameAs` del JSON-LD).
-- [ ] **Fotografías** — las 9 imágenes de `/images` son de Unsplash, de relleno. Sustituirlas por fotos reales del local (mismo pipeline: WebP, dos anchos, grade horneado).
-- [ ] **Coordenadas y dirección** — verificar el punto exacto del mapa.
-- [ ] **Carta y precios** — ⚠️ **los 42 productos y todos los precios son inventados**, escritos como muestra editorial con precios plausibles de la zona. Hay que sustituirlos por la carta real **en dos sitios**: el HTML de la sección `#carta` y el bloque `Menu` del JSON-LD (si los precios del schema no coinciden con los reales, Google lo penaliza).
-- [ ] **Alérgenos** — la web dice que la información está disponible en barra; es obligatorio tenerla (Reglamento UE 1169/2011).
-- [ ] **Agenda** — los nombres de las noches de la semana son de muestra.
-- [ ] **Dominio** — si cambia, actualizar `canonical`, Open Graph, `sitemap.xml` y `robots.txt`.
-- [ ] **Aviso legal, privacidad y cookies** — obligatorios en España (LSSI/RGPD) una vez se añada cualquier analítica.
+- [ ] **Teléfono y WhatsApp** — no existen en el código; hay que volver a crearlos: bloque `Reservas` en `#contacto`, botón del cierre, `telephone` del JSON-LD y las dos respuestas del FAQ que antes remitían a WhatsApp.
+- [ ] **Redes sociales** — igual: enlaces del footer y `sameAs` del JSON-LD.
+- [ ] **Logo** — sustituir `images/mark.webp`, `mark-180.webp` y `favicon.png` por la marca real. Usar **nombres de fichero nuevos**: `/images/*` se sirve con caché inmutable de un año, así que sobrescribir un fichero deja a la gente viendo el anterior.
+- [ ] **Carta y precios** — los 42 productos son inventados. Cambiarlos **en dos sitios**: el HTML de `#carta` y el bloque `Menu` del JSON-LD.
+- [ ] **Alérgenos** — la web dice que la información está en barra; es obligatorio tenerla (Reglamento UE 1169/2011).
+- [ ] **Fotografías** — las nueve imágenes de `/images` son de Unsplash. Mismo pipeline: WebP, dos anchos, grade horneado.
+- [ ] **Agenda** — los nombres de las noches son de muestra.
+- [ ] **Indexación** — quitar `noindex` de `index.html` y abrir `robots.txt`.
+- [ ] **Dominio** — actualizar `canonical`, Open Graph, JSON-LD y `sitemap.xml`.
+- [ ] **Aviso legal, privacidad y cookies** — obligatorios en España (LSSI/RGPD) en cuanto se añada analítica.
+- [ ] **Aviso de maqueta** — quitar la línea del pie.

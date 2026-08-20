@@ -1,7 +1,7 @@
 {
-  "name": "La Chica de Ayer · Pub en Almerimar",
+  "name": "La Chica de Ayer · maqueta de diseño",
   "short_name": "La Chica de Ayer",
-  "description": "Pub y bar de copas frente al puerto de Almerimar. Música, copas y noches de verano.",
+  "description": "Maqueta de diseño de una web de pub. Contenido de muestra, no es una web operativa.",
   "lang": "es-ES",
   "start_url": "/",
   "scope": "/",
@@ -11,8 +11,14 @@
   "theme_color": "#0a0706",
   "icons": [
     {
-      "src": "/images/logo.webp",
-      "sizes": "any",
+      "src": "/images/mark-180.webp",
+      "sizes": "180x180",
+      "type": "image/webp",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/mark.webp",
+      "sizes": "512x512",
       "type": "image/webp",
       "purpose": "any"
     }
