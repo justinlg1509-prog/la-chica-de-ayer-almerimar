@@ -65,9 +65,19 @@ npx vercel --prod
 
 `vercel.json` aplica:
 
-- **CSP** restrictiva con la lista blanca justa (CDN de scripts, Google Fonts, Unsplash, mapa de Google).
+- **CSP** restrictiva con la lista blanca justa (CDN de scripts, Google Fonts, mapa de Google). Las imágenes son propias, así que `img-src` es solo `'self' data:`.
 - `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy`, `HSTS`.
-- Caché inmutable para `/images/*` y revalidación horaria para CSS/JS.
+- Caché inmutable para `/images/*` (los nombres de fichero no cambian de contenido).
+
+### Caché de CSS y JS: no subir el `max-age`
+
+`styles.css` y `app.js` se sirven con `max-age=0, must-revalidate`. **Es deliberado y no hay que "optimizarlo".**
+
+Como no hay build, los ficheros no llevan hash en el nombre. Si se les pone un `max-age` largo, el navegador se queda con el CSS viejo mientras Vercel le entrega el HTML nuevo (el HTML sí va con `max-age=0`), y la página se ve rota hasta que caduque. Pasó exactamente eso con un `max-age=3600`: durante una hora, cualquiera que hubiese entrado antes veía el HTML nuevo con el CSS anterior.
+
+Con `max-age=0, must-revalidate` el navegador pregunta siempre y el edge responde `304` si no ha cambiado: son unos pocos bytes por carga y la corrección está garantizada.
+
+Los enlaces llevan además `?v=2`. Ese número solo hace falta subirlo si alguna vez se vuelve a cachear de forma agresiva; con las cabeceras actuales no es necesario tocarlo.
 
 ---
 
