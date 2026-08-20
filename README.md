@@ -71,6 +71,28 @@ npx vercel --prod
 
 ---
 
+## Imágenes
+
+Todas las fotos se sirven **desde el propio dominio** en WebP, con dos o tres anchos por imagen (`srcset`). No se carga nada desde terceros.
+
+El grade —oscurecido, desaturado y virado a cálido para que todo el sitio tenga la misma piel— viene **horneado en el fichero**, no aplicado con `filter:` en CSS. Es deliberado: un `filter` sobre una imagen grande que además hace parallax se recalcula en cada fotograma y era lo que hundía los FPS.
+
+Medido en Chrome antes y después de ese cambio (scroll completo de la página):
+
+| | antes | después |
+|---|---|---|
+| FPS medio | 31 | **60** |
+| fotogramas > 32 ms | 50 de 77 | **0 de 147** |
+| peso total | 2 660 KB | **1 234 KB** |
+| solo imágenes | 1 843 KB | **418 KB** |
+| loader delante | 2 363 ms | **1 165 ms** |
+
+Si hay que regenerar las imágenes o cambiar el grade, el pipeline usa [sharp](https://sharp.pixelplumbing.com/): redimensiona, aplica `modulate` + capa cálida + capa de oscurecido y exporta WebP.
+
+> Las fotos actuales son de [Unsplash](https://unsplash.com/license) y están **de relleno**: sirven para enseñar la dirección de arte, no para publicar. Hay que sustituirlas por fotografía real del local.
+
+---
+
 ## Accesibilidad y rendimiento
 
 - Enlace *saltar al contenido*, `main` y jerarquía de encabezados correcta.
@@ -96,7 +118,7 @@ Antes de publicar en el dominio definitivo hay que sustituir los marcadores:
 
 - [ ] **Teléfono y WhatsApp** — ahora `+34 000 000 000` en `index.html` (enlaces `wa.me`, `tel:` y el JSON-LD).
 - [ ] **Redes sociales** — enlaces a Instagram y Facebook (footer y `sameAs` del JSON-LD).
-- [ ] **Fotografías** — las imágenes son de Unsplash a modo de referencia visual; conviene reemplazarlas por fotos del local en formato WebP servidas desde `/images`.
+- [ ] **Fotografías** — las 9 imágenes de `/images` son de Unsplash, de relleno. Sustituirlas por fotos reales del local (mismo pipeline: WebP, dos anchos, grade horneado).
 - [ ] **Coordenadas y dirección** — verificar el punto exacto del mapa.
 - [ ] **Carta y precios** — ⚠️ **los 42 productos y todos los precios son inventados**, escritos como muestra editorial con precios plausibles de la zona. Hay que sustituirlos por la carta real **en dos sitios**: el HTML de la sección `#carta` y el bloque `Menu` del JSON-LD (si los precios del schema no coinciden con los reales, Google lo penaliza).
 - [ ] **Alérgenos** — la web dice que la información está disponible en barra; es obligatorio tenerla (Reglamento UE 1169/2011).

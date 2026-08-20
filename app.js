@@ -30,22 +30,24 @@
     if (!loader || loader.classList.contains('done')) return;
     loader.classList.add('done');
   };
-  // si algo va mal, el loader nunca bloquea la web más de 3,5 s
-  const loaderFailsafe = setTimeout(hideLoader, 3500);
+  // si algo va mal, el loader nunca bloquea la web más de 2 s
+  const loaderFailsafe = setTimeout(hideLoader, 2000);
 
+  // La página pinta a los ~400ms; tener el loader casi 2,5s delante era
+  // regalar dos segundos de espera. Ahora saluda y se quita de en medio.
   const runLoader = () => {
     if (!loader) { playHero(); return; }
     if (!animate) { hideLoader(); playHero(); return; }
     const bar  = $('.bar span', loader);
     const mark = $('.mark', loader);
     gsap.timeline()
-      .to(mark, { opacity: 1, duration: .7, ease: 'power2.out' })
-      .to(bar,  { width: '100%', duration: 1.1, ease: 'power2.inOut' }, 0)
+      .to(mark, { opacity: 1, duration: .28, ease: 'power2.out' })
+      .to(bar,  { width: '100%', duration: .45, ease: 'power2.inOut' }, 0)
       .to(loader, {
-        opacity: 0, duration: .7, ease: 'power2.inOut',
+        opacity: 0, duration: .35, ease: 'power2.inOut',
         onComplete: () => { clearTimeout(loaderFailsafe); hideLoader(); }
-      }, '+=.15')
-      .add(playHero, '-=.4');
+      })
+      .add(playHero, '-=.25');
   };
 
   /* ===== Lenis smooth scroll (opcional) ===== */
@@ -206,11 +208,13 @@
       onRefresh: s => setShrink(s.scroll() > 80)
     });
 
-    // `start` es del ScrollTrigger, no una propiedad a animar: se extrae aparte
+    // `start` es del ScrollTrigger, no una propiedad a animar: se extrae aparte.
+    // once:true mata el disparador al terminar; si no, los ~45 que hay siguen
+    // recalculándose en cada scroll durante toda la sesión.
     const fadeIn = (sel, { start = 'top 88%', ...vars }) => gsap.utils.toArray(sel).forEach(el => {
       if (el.closest('.hero')) return;
       gsap.from(el, Object.assign({ ease: 'power3.out' }, vars, {
-        scrollTrigger: { trigger: el, start }
+        scrollTrigger: { trigger: el, start, once: true }
       }));
     });
 

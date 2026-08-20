@@ -84,12 +84,12 @@ button{font:inherit;color:inherit;background:none;border:0}
 /* grano de película global */
 body::after{
   content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;
-  opacity:.05;mix-blend-mode:overlay;
+  opacity:.035;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 /* ---------- cursor a medida ---------- */
-.cursor,.cursor-dot{position:fixed;top:0;left:0;z-index:9999;pointer-events:none;border-radius:50%;mix-blend-mode:screen;opacity:0}
+.cursor,.cursor-dot{position:fixed;top:0;left:0;z-index:9999;pointer-events:none;border-radius:50%;opacity:0}
 html.custom-cursor .cursor,html.custom-cursor .cursor-dot{opacity:1}
 .cursor{width:34px;height:34px;border:1px solid var(--amber);transform:translate(-50%,-50%);transition:width .35s var(--ease),height .35s var(--ease),background .35s var(--ease),border-color .35s}
 .cursor-dot{width:5px;height:5px;background:var(--amber);transform:translate(-50%,-50%)}
@@ -181,7 +181,10 @@ body.menu-open{overflow:hidden}
 /* ---------- utilidades ---------- */
 .eyebrow{font-size:.7rem;letter-spacing:.34em;text-transform:uppercase;color:var(--amber-soft);display:inline-flex;align-items:center;gap:.8rem;line-height:1.4}
 .eyebrow::before{content:"";width:34px;height:1px;background:var(--amber-soft);display:inline-block;flex:0 0 34px}
-.eyebrow-center{justify-content:center}
+/* en bloque (no inline-flex) para que ocupe el ancho disponible: si no,
+   la caja se encoge por debajo de su contenido y el texto parte en dos
+   dejando el guion solo en la primera línea */
+.eyebrow-center,.music .eyebrow{display:flex;justify-content:center}
 .reveal{overflow:hidden;display:block}
 .reveal > *{display:block;will-change:transform}
 section{position:relative}
@@ -191,13 +194,16 @@ section{position:relative}
    ============================================================ */
 .hero{height:100svh;min-height:640px;position:relative;display:flex;align-items:center;overflow:hidden}
 .hero-media{position:absolute;inset:0;z-index:0}
-.hero-media img{width:100%;height:120%;object-fit:cover;filter:brightness(.52) saturate(.9) contrast(1.05);will-change:transform}
+.hero-media img{width:100%;height:120%;object-fit:cover;will-change:transform}
 .hero-grade{position:absolute;inset:0;z-index:1;
   background:
     radial-gradient(120% 80% at 75% 15%, rgba(168,48,43,.20), transparent 55%),
     radial-gradient(90% 70% at 20% 90%, rgba(200,151,63,.18), transparent 60%),
     linear-gradient(180deg, rgba(10,7,6,.55) 0%, rgba(10,7,6,.15) 40%, rgba(10,7,6,.92) 100%)}
-.hero-vignette{position:absolute;inset:0;z-index:1;box-shadow:inset 0 0 240px 60px rgba(10,7,6,.9)}
+/* degradado radial en vez de inset box-shadow: el shadow con spread dibuja
+   un borde duro y la foto acababa pareciendo un cuadro colgado */
+.hero-vignette{position:absolute;inset:0;z-index:1;
+  background:radial-gradient(115% 95% at 50% 45%,transparent 35%,rgba(10,7,6,.55) 78%,rgba(10,7,6,.9) 100%)}
 .hero-inner{position:relative;z-index:3;width:100%;max-width:1500px;margin:0 auto;padding:0 var(--gutter)}
 .hero h1{font-family:var(--display);font-weight:300;letter-spacing:-.02em;line-height:.95;margin-top:1.6rem;
   font-size:clamp(2.8rem,9vw,8.5rem);text-transform:uppercase}
@@ -236,8 +242,8 @@ section{position:relative}
    ============================================================ */
 .exp{display:grid;grid-template-columns:repeat(12,1fr);gap:1.2rem;max-width:var(--maxw);margin:0 auto}
 .exp figure{position:relative;overflow:hidden;border-radius:4px}
-.exp figure img{width:100%;height:100%;object-fit:cover;filter:brightness(.78) saturate(.95);transition:transform 1.1s var(--ease),filter .8s;will-change:transform}
-.exp figure:hover img{transform:scale(1.06);filter:brightness(.92)}
+.exp figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
+.exp figure:hover img{transform:scale(1.06)}
 .exp figcaption{position:absolute;left:0;bottom:0;padding:1.4rem;z-index:2;width:100%;
   background:linear-gradient(transparent,rgba(10,7,6,.88))}
 .exp figcaption .k{display:block;font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--amber-soft)}
@@ -256,14 +262,14 @@ section{position:relative}
    ============================================================ */
 .music{position:relative;overflow:hidden;padding:clamp(6rem,16vh,14rem) var(--gutter);text-align:center}
 .music-bg{position:absolute;inset:0;z-index:0}
-.music-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.28) saturate(.7);will-change:transform}
+.music-bg img{width:100%;height:100%;object-fit:cover;will-change:transform}
 .music-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 60% at 50% 50%,transparent,rgba(10,7,6,.9))}
 .music-inner{position:relative;z-index:2}
 .music .eyebrow{justify-content:center;margin-bottom:1.6rem}
 .music h2{font-family:var(--display);font-weight:300;text-transform:uppercase;line-height:.9;letter-spacing:-.02em;
   font-size:clamp(3rem,15vw,13rem)}
 .music h2 em{font-style:italic;color:var(--amber);text-transform:none}
-.music p{max-width:46ch;margin:2.2rem auto 0;color:var(--bone-dim);font-size:clamp(1rem,1.5vw,1.15rem)}
+.music p:not(.eyebrow){max-width:46ch;margin:2.2rem auto 0;color:var(--bone-dim);font-size:clamp(1rem,1.5vw,1.15rem)}
 .equalizer{display:flex;gap:5px;align-items:flex-end;justify-content:center;height:48px;margin-top:2.4rem}
 .equalizer i{width:3px;background:var(--amber);border-radius:2px;animation:eq 1.1s var(--ease) infinite}
 .equalizer i:nth-child(2){animation-delay:.15s}.equalizer i:nth-child(3){animation-delay:.3s}
@@ -284,7 +290,7 @@ section{position:relative}
 .life-stats .n{font-family:var(--display);font-size:clamp(2rem,4vw,3rem);color:var(--amber);line-height:1}
 .life-stats .c{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--bone-faint);margin-top:.4rem;margin-left:0}
 .life-img{position:relative;overflow:hidden;min-height:60vh}
-.life-img img{position:absolute;inset:0;width:100%;height:118%;object-fit:cover;filter:brightness(.7) saturate(.95);will-change:transform}
+.life-img img{position:absolute;inset:0;width:100%;height:118%;object-fit:cover;will-change:transform}
 @media(max-width:860px){.life{grid-template-columns:1fr}.life-img{min-height:56vh;order:-1}}
 
 /* ============================================================
@@ -329,10 +335,9 @@ section{position:relative}
 }
 .carta-feature img{
   width:100%;aspect-ratio:3/4;object-fit:cover;
-  filter:brightness(.82) saturate(.95);
-  transition:transform 1.1s var(--ease),filter .8s;will-change:transform;
+  transition:transform 1.1s var(--ease);
 }
-.carta-feature:hover img{transform:scale(1.05);filter:brightness(.95)}
+.carta-feature:hover img{transform:scale(1.05)}
 /* el padding superior alarga el degradado: sin esa carrerilla el texto
    cae sobre la parte clara de la foto y no se lee */
 .carta-feature figcaption{
@@ -461,14 +466,14 @@ section{position:relative}
 .finale{position:relative;min-height:96svh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;
   padding:clamp(4rem,10vh,8rem) var(--gutter)}
 .finale-bg{position:absolute;inset:0;z-index:0}
-.finale-bg img{width:100%;height:118%;object-fit:cover;filter:brightness(.4) saturate(.9);will-change:transform}
+.finale-bg img{width:100%;height:118%;object-fit:cover;will-change:transform}
 .finale-bg::after{content:"";position:absolute;inset:0;
   background:radial-gradient(80% 70% at 50% 40%,rgba(168,48,43,.22),transparent 60%),linear-gradient(rgba(10,7,6,.5),rgba(10,7,6,.78))}
 .finale-inner{position:relative;z-index:2;max-width:900px}
 .finale h2{font-family:var(--display);font-weight:300;text-transform:uppercase;line-height:.92;letter-spacing:-.02em;
   font-size:clamp(3rem,11vw,9rem);margin-top:1.4rem}
 .finale h2 em{font-style:italic;color:var(--amber);text-transform:none}
-.finale p{color:var(--bone-dim);margin:2rem auto 0;max-width:48ch;font-size:clamp(1rem,1.5vw,1.18rem)}
+.finale p:not(.eyebrow){color:var(--bone-dim);margin:2rem auto 0;max-width:48ch;font-size:clamp(1rem,1.5vw,1.18rem)}
 .cta-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2.8rem}
 .cta-row-left{justify-content:flex-start;margin-top:2.4rem}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.7rem;padding:1.05rem 2.3rem;border-radius:48px;font-size:.74rem;letter-spacing:.2em;
