@@ -1,0 +1,20 @@
+{
+  "name": "La Chica de Ayer · Pub en Almerimar",
+  "short_name": "La Chica de Ayer",
+  "description": "Pub y bar de copas frente al puerto de Almerimar. Música, copas y noches de verano.",
+  "lang": "es-ES",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0a0706",
+  "theme_color": "#0a0706",
+  "icons": [
+    {
+      "src": "/images/logo.webp",
+      "sizes": "any",
+      "type": "image/webp",
+      "purpose": "any"
+    }
+  ]
+}
